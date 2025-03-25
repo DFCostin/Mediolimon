@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+body {
+    font-family: 'Neue Haas Grotesk Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.875rem; 
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    line-height: 1.06;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .warm-gradient {
+
+    background: linear-gradient(
+        135deg,  /* Ángulo modificado para efecto envolvente */
+        #F5E6FF, #EBD4FF, #E0C2FF,
+        #E8FFE6, #D4F7D0, #C0EBB5,
+        #FFF9E6, #FFF3CC, #FFEDB3,
+        #FFE6F5, #FFD4EB, #FFC2E0,
+        #E6F9FF, #D4F0FF, #C2E7FF,
+        #FFEFE6, #FFDFCC, #FFCEB3,
+        #F5E6FF
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 300s ease infinite; /* 3 minutos de duración */
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.warm-gradient::before {
+    content: '';
+    position: absolute;
+    /* top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%; */
+    background: inherit;
+    animation: rotate-animation 340s linear infinite; /* Movimiento rotacional adicional */
+    opacity: 0.4;
+    mix-blend-mode: soft-light;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        background-position: 100% 100%;
+        filter: hue-rotate(180deg);
+    }
+    100% {
+        background-position: 0% 0%;
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes rotate-animation {
+    0% {
+        transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.5);
+    }
+}
